@@ -17,6 +17,17 @@ const camera = new THREE.PerspectiveCamera(
     
     camera.position.z = 5;
     
+    
+    // enables button pressing
+    window.onkeydown = function(e){
+        keydown[e.key]
+    }
+    window.onkeyup = function(e){
+        keydown[e.key] = false
+    }
+    //enables button pressing
+
+    //animation
     function animate() {
     requestAnimationFrame(animate);
 
@@ -25,4 +36,14 @@ const camera = new THREE.PerspectiveCamera(
     }
     
     animate();
-    
+    //animation
+
+    function movement(){
+
+        if(keydown["ArrowUp"]) camera.position.z -= 0.1;
+        if(keydown["ArrowDown"]) camera.position.z += 0.1;
+        if(keydown["ArrowRight"]) camera.position.x += 0.1;
+        if(keydown["ArrowLeft"]) camera.position.z -= 0.1;
+    }
+
+    movement
