@@ -1,4 +1,4 @@
-const scene = new THREE.Scene();
+const scene = new THREE.SceneCamera(window.innerWidth,window.innerHeight)
 const camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
