@@ -11,13 +11,24 @@ document.addEventListener("DOMContentLoaded", function () {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
     
-    const geometry = new THREE.BoxGeometry(2, 2, 2);
-    const material = new THREE.MeshBasicMaterial({ color: 0x5effff });
+    const geometry = new THREE.BoxGeometry(1, 3, 5);
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
     
     camera.position.z = 5;
     
+    
+    // enables button pressing
+    window.onkeydown = function(e){
+        keydown[e.key]
+    }
+    window.onkeyup = function(e){
+        keydown[e.key] = false
+    }
+    //enables button pressing
+
+    //animation
     function animate() {
     requestAnimationFrame(animate);
     cube.rotation.x += 0.01;
@@ -27,4 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     animate();
-});    
+    //animation
+
+    function movement(){
+
+        if(keydown["ArrowUp"]) camera.position.z -= 0.1;
+        if(keydown["ArrowDown"]) camera.position.z += 0.1;
+        if(keydown["ArrowRight"]) camera.position.x += 0.1;
+        if(keydown["ArrowLeft"]) camera.position.z -= 0.1;
+    }
+
+    movement
