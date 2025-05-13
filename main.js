@@ -1,4 +1,4 @@
-
+import FlyControls from 'https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/controls/FlyControls.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
-    // Initialize controls BEFORE animation starts
     let controls = new FlyControls(camera, renderer.domElement);
     controls.movementSpeed = 100;
     controls.rollSpeed = Math.PI / 24;
