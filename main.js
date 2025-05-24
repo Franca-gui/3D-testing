@@ -1,11 +1,11 @@
-const scene = new THREE.SceneCamera(window.innerWidth,window.innerHeight)
+const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
         0.1,
         1000
     );
-    
+
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
@@ -20,7 +20,7 @@ const camera = new THREE.PerspectiveCamera(
     
     // enables button pressing
     window.onkeydown = function(e){
-        keydown[e.key]
+        keydown[e.key] = true
     }
     window.onkeyup = function(e){
         keydown[e.key] = false
@@ -31,7 +31,7 @@ const camera = new THREE.PerspectiveCamera(
     function animate() {
     requestAnimationFrame(animate);
 
-    cube.rotation.y += 70.01;
+    cube.rotation.y += 0.10;
     renderer.render(scene, camera);
     }
     
@@ -40,10 +40,10 @@ const camera = new THREE.PerspectiveCamera(
 
     function movement(){
 
-        if(keydown["ArrowUp"]) camera.position.z -= 0.1;
-        if(keydown["ArrowDown"]) camera.position.z += 0.1;
-        if(keydown["ArrowRight"]) camera.position.x += 0.1;
-        if(keydown["ArrowLeft"]) camera.position.z -= 0.1;
+        if(keydown["ArrowUp"]) camera.position.z -= 10.1;
+        if(keydown["ArrowDown"]) camera.position.z += 1.1;
+        if(keydown["ArrowRight"]) camera.position.x += 1.1;
+        if(keydown["ArrowLeft"]) camera.position.z -= 1.1;
     }
 
     movement
